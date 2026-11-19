@@ -70,6 +70,69 @@
             margin-top: 10px;
         }
 
+        /* Estilos para el cuadro de comentarios tipo red social */
+        .caja-comentarios {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .caja-comentarios h4 {
+            margin: 0 0 10px 0;
+            color: #1f4e79;
+            font-size: 0.95em;
+        }
+
+        .caja-comentarios input,
+        .caja-comentarios textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+        }
+
+        .caja-comentarios textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .btn-publicar {
+            background-color: #1f4e79;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .btn-publicar:hover {
+            background-color: #163a5c;
+        }
+
+        .lista-comentarios {
+            margin-top: 12px;
+        }
+
+        .comentario-item {
+            background-color: #f4f6f9;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid #1f4e79;
+            font-size: 0.9em;
+        }
+
+        .comentario-item strong {
+            color: #1f4e79;
+            display: block;
+            margin-bottom: 3px;
+        }
+
         footer {
             background-color: #1f4e79;
             color: white;
@@ -88,8 +151,8 @@
 
     <header>
         <h1>Nuestra Voz Digital</h1>
-        <h3>Podcasts realizados por estudiantes de 3°1° CENS 451 "Paulo Freire" <h3>
-                       <h3>9 de Julio (BA) - Argentina</h3>
+        <h3>Podcasts realizados por estudiantes de 3°1° CENS 451 "Paulo Freire"</h3>
+        <h3>9 de Julio (BA) - Argentina</h3>
     </header>
 
     <div class="portada">
@@ -128,8 +191,12 @@
                 Tu navegador no soporta audio.
             </audio>
 
-            <div class="zona-interaccion">
-                <a href="mailto:laudelina026@gmail.com?subject=Comentario sobre Grupo 1 - Tres Locos al Micrófono" class="btn-comentar">💬 Dejar opinión al grupo</a>
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g1" placeholder="Tu nombre...">
+                <textarea id="texto-g1" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g1', 'Grupo 1: Tres Locos al Micrófono')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g1"></div>
             </div>
         </article>
 
@@ -143,6 +210,14 @@
                 <source src="episodios/audio2.mp3" type="audio/mp3">
                 Tu navegador no soporta audio.
             </audio>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g2" placeholder="Tu nombre...">
+                <textarea id="texto-g2" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g2', 'Grupo 2: Misterios Paranormales')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g2"></div>
+            </div>
         </article>
 
        <!-- Grupo 3 -->
@@ -156,6 +231,14 @@
                 <source src="episodios/video3.mp4" type="video/mp4">
                 Tu navegador no soporta video.
             </video>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g3" placeholder="Tu nombre...">
+                <textarea id="texto-g3" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g3', 'Grupo 3: Las Sin Filtro')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g3"></div>
+            </div>
         </article>
 
        <!-- Grupo 4 (Comentado temporalmente)
@@ -166,6 +249,14 @@
             <p>Conectando sabores.</p>
             
             <iframe src="https://drive.google.com/file/d/1_vfKEHmIdiIoPFqm-NmWOz2NnMsCxIpU/preview" width="100%" height="240" allow="autoplay" style="border: none; border-radius: 8px; margin-top: 10px;"></iframe>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g4" placeholder="Tu nombre...">
+                <textarea id="texto-g4" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g4', 'Grupo 4: Sabores en Red')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g4"></div>
+            </div>
         </article>
         -->
 
@@ -182,6 +273,14 @@
                 <source src="episodios/audio5.mpeg" type="audio/mpeg">
                 Tu navegador no soporta audio.
             </audio>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g5" placeholder="Tu nombre...">
+                <textarea id="texto-g5" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g5', 'Grupo 5: Cocina, Risas y Sabor')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g5"></div>
+            </div>
         </article>
 
         <!-- Grupo 6 -->
@@ -189,11 +288,20 @@
             <img src="caratulas/caratula6.jpeg" alt="Carátula Grupo 6" width="150" style="border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
             <h2>Grupo 6: La música a través del tiempo</h2>
             <p><strong>Integrantes:</strong> Amengual, Javier - Rodríguez, Gustavo - Zappa, Leandro</p>
+            <p><strong>Invitados Especiales:</strong> Uma Gailach y Nicolás Gailach</p>
             <p>La historia y evolución de los diferentes estilos de música que escuchamos a través de los años.</p>
             <audio controls>
-                <source src="episodios/grupo6.mp3" type="audio/mpeg">
+                <source src="episodios/audio6.mp3" type="audio/mp3">
                 Tu navegador no soporta audio.
             </audio>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g6" placeholder="Tu nombre...">
+                <textarea id="texto-g6" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g6', 'Grupo 6: La música a través del tiempo')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g6"></div>
+            </div>
         </article>
 
         <!-- Grupo 7 -->
@@ -206,6 +314,14 @@
                 <source src="episodios/audio7.mp3" type="audio/mp3">
                 Tu navegador no soporta audio.
             </audio>
+
+            <div class="caja-comentarios">
+                <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
+                <input type="text" id="nombre-g7" placeholder="Tu nombre...">
+                <textarea id="texto-g7" placeholder="Escribí tu opinión acá..."></textarea>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g7', 'Grupo 7: ¿Hablamos o Escroleamos?')">Publicar comentario</button>
+                <div class="lista-comentarios" id="lista-g7"></div>
+            </div>
         </article>
 
     </section>
@@ -214,6 +330,65 @@
         <p>Proyecto Podcast Escolar 2026</p>
         <p>© Prof. Mariela L. Loza. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function agregarComentario(idGrupo, nombreGrupo) {
+            const inputNombre = document.getElementById('nombre-' + idGrupo);
+            const inputTexto = document.getElementById('texto-' + idGrupo);
+            const lista = document.getElementById('lista-' + idGrupo);
+
+            const nombre = inputNombre.value.trim();
+            const texto = inputTexto.value.trim();
+
+            if (!nombre || !texto) {
+                alert('Por favor, escribí tu nombre y un comentario antes de publicar.');
+                return;
+            }
+
+            // Crear y mostrar el comentario en pantalla
+            const item = document.createElement('div');
+            item.className = 'comentario-item';
+
+            const autor = document.createElement('strong');
+            autor.textContent = nombre + ' comentó:';
+
+            const mensaje = document.createElement('span');
+            mensaje.textContent = texto;
+
+            item.appendChild(autor);
+            item.appendChild(mensaje);
+            lista.appendChild(item);
+
+            // Guardar en el navegador del dispositivo para que no se borre al recargar
+            const guardados = JSON.parse(localStorage.getItem('comentarios_' + idGrupo) || '[]');
+            guardados.push({ nombre: nombre, texto: texto });
+            localStorage.setItem('comentarios_' + idGrupo, JSON.stringify(guardados));
+
+            // Limpiar campos
+            inputNombre.value = '';
+            inputTexto.value = '';
+        }
+
+        // Cargar comentarios guardados al abrir la página
+        window.addEventListener('DOMContentLoaded', function() {
+            ['g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'g7'].forEach(function(idGrupo) {
+                const lista = document.getElementById('lista-' + idGrupo);
+                if (!lista) return;
+                const guardados = JSON.parse(localStorage.getItem('comentarios_' + idGrupo) || '[]');
+                guardados.forEach(function(c) {
+                    const item = document.createElement('div');
+                    item.className = 'comentario-item';
+                    const autor = document.createElement('strong');
+                    autor.textContent = c.nombre + ' comentó:';
+                    const mensaje = document.createElement('span');
+                    mensaje.textContent = c.texto;
+                    item.appendChild(autor);
+                    item.appendChild(mensaje);
+                    lista.appendChild(item);
+                });
+            });
+        });
+    </script>
 
 </body>
 
