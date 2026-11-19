@@ -9,35 +9,57 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
+            background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 50%, #e3f2fd 100%);
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
+            color: #102a43;
         }
 
         header {
-            background-color: #1f4e79;
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 55%, #0288d1 100%);
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 35px 20px;
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.25);
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        header h3 {
+            font-weight: normal;
+            opacity: 0.95;
+            margin: 5px 0;
         }
 
         .portada {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .portada img {
-            width: 300px;
+            width: 320px;
             max-width: 90%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px gray;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(13, 71, 161, 0.28);
+            border: 3px solid #4fc3f7;
         }
 
         .descripcion {
             width: 80%;
-            margin: auto;
+            max-width: 780px;
+            margin: 20px auto;
             text-align: center;
-            padding: 20px;
+            padding: 18px 22px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(2, 136, 209, 0.12);
+            color: #102a43;
+            font-size: 1.08em;
         }
 
         .episodios {
@@ -47,39 +69,49 @@
             padding-bottom: 30px;
         }
 
+        .seccion-presentacion {
+            background: linear-gradient(145deg, #ffffff, #f0f9ff);
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(13, 71, 161, 0.12);
+            border-left: 6px solid #0288d1;
+        }
+
         .episodio {
-            background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 5px #ccc;
+            background: linear-gradient(145deg, #ffffff, #f5fbff);
+            margin: 24px 0;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(13, 71, 161, 0.12);
+            border-left: 6px solid #1976d2;
         }
 
         .espacio-caratula {
-            border: 2px dashed #ccc;
+            border: 2px dashed #81d4fa;
             padding: 15px;
             text-align: center;
             margin-bottom: 15px;
-            color: #666;
-            border-radius: 6px;
-            background-color: #fafafa;
+            color: #0277bd;
+            border-radius: 8px;
+            background-color: #e1f5fe;
         }
 
         audio {
             width: 100%;
             margin-top: 10px;
+            accent-color: #1565c0;
         }
 
         /* Estilos para el cuadro de comentarios tipo red social */
         .caja-comentarios {
             margin-top: 20px;
             padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #bbdefb;
         }
 
         .caja-comentarios h4 {
             margin: 0 0 10px 0;
-            color: #1f4e79;
+            color: #0d47a1;
             font-size: 0.95em;
         }
 
@@ -89,10 +121,18 @@
             box-sizing: border-box;
             padding: 10px;
             margin-bottom: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid #90caf9;
             border-radius: 6px;
             font-family: Arial, sans-serif;
             font-size: 0.9em;
+            background-color: #ffffff;
+        }
+
+        .caja-comentarios input:focus,
+        .caja-comentarios textarea:focus {
+            outline: none;
+            border-color: #0288d1;
+            box-shadow: 0 0 0 2px rgba(2, 136, 209, 0.2);
         }
 
         .caja-comentarios textarea {
@@ -101,17 +141,19 @@
         }
 
         .btn-publicar {
-            background-color: #1f4e79;
+            background: linear-gradient(135deg, #1565c0, #0288d1);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.9em;
+            font-weight: bold;
+            transition: opacity 0.25s;
         }
 
         .btn-publicar:hover {
-            background-color: #163a5c;
+            opacity: 0.9;
         }
 
         .lista-comentarios {
@@ -119,30 +161,31 @@
         }
 
         .comentario-item {
-            background-color: #f4f6f9;
+            background: linear-gradient(90deg, #e3f2fd, #e1f5fe);
             padding: 10px 12px;
             border-radius: 8px;
             margin-bottom: 8px;
-            border-left: 3px solid #1f4e79;
+            border-left: 3px solid #0288d1;
             font-size: 0.9em;
         }
 
         .comentario-item strong {
-            color: #1f4e79;
+            color: #0d47a1;
             display: block;
             margin-bottom: 3px;
         }
 
         footer {
-            background-color: #1f4e79;
+            background: linear-gradient(135deg, #0288d1 0%, #1976d2 45%, #0d47a1 100%);
             color: white;
             text-align: center;
-            padding: 15px;
-            margin-top: 30px;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -4px 12px rgba(13, 71, 161, 0.2);
         }
 
         h2 {
-            color: #1f4e79;
+            color: #0d47a1;
         }
     </style>
 </head>
@@ -169,11 +212,13 @@
 
     <section>
         <div class="episodios">
-            <h2>Presentación</h2>
-            <audio controls>
-                <source src="Speech.mp3" type="audio/mpeg">
-                Tu navegador no soporta audio.
-            </audio>
+            <div class="seccion-presentacion">
+                <h2>Presentación</h2>
+                <audio controls>
+                    <source src="Speech.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio.
+                </audio>
+            </div>
         </div>
     </section>
 
@@ -220,7 +265,7 @@
             </div>
         </article>
 
-       <!-- Grupo 3 -->
+        <!-- Grupo 3 -->
         <article class="episodio">
             <img src="caratulas/caratula3.jpg" alt="Carátula Grupo 3" width="150" style="border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
             <h2>Grupo 3: Las Sin Filtro</h2>
@@ -241,7 +286,7 @@
             </div>
         </article>
 
-      <!-- Grupo 4 (Video desde Google Drive) -->
+        <!-- Grupo 4 (Video desde Google Drive) -->
         <article class="episodio">
             <img src="caratulas/caratula4.jpg" alt="Carátula Grupo 4" width="150" style="border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
             <h2>Grupo 4: Sabores en Red</h2>
