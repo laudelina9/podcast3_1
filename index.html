@@ -156,6 +156,11 @@
             opacity: 0.9;
         }
 
+        .btn-publicar:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
         .lista-comentarios {
             margin-top: 12px;
         }
@@ -240,7 +245,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g1" placeholder="Tu nombre...">
                 <textarea id="texto-g1" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g1', 'Grupo 1: Tres Locos al Micrófono')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g1', 'Grupo 1: Tres Locos al Micrófono', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g1"></div>
             </div>
         </article>
@@ -252,7 +257,7 @@
             <p><strong>Integrantes:</strong> Arretche, Lucas - Piras, Malena - Pucheu, Débora - Videla, Jeremías</p>
             <p>Experiencias paranormales de ayer y hoy.</p>
             <audio controls>
-                <source src="episodios/audio2.mp3" type="audio/mp3">
+                <source src="episodios/audio2.mp3" type="audio/mpeg">
                 Tu navegador no soporta audio.
             </audio>
 
@@ -260,7 +265,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g2" placeholder="Tu nombre...">
                 <textarea id="texto-g2" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g2', 'Grupo 2: Misterios Paranormales')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g2', 'Grupo 2: Misterios Paranormales', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g2"></div>
             </div>
         </article>
@@ -281,7 +286,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g3" placeholder="Tu nombre...">
                 <textarea id="texto-g3" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g3', 'Grupo 3: Las Sin Filtro')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g3', 'Grupo 3: Las Sin Filtro', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g3"></div>
             </div>
         </article>
@@ -299,7 +304,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g4" placeholder="Tu nombre...">
                 <textarea id="texto-g4" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g4')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g4', 'Grupo 4: Sabores en Red', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g4"></div>
             </div>
         </article>
@@ -322,7 +327,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g5" placeholder="Tu nombre...">
                 <textarea id="texto-g5" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g5', 'Grupo 5: Cocina, Risas y Sabor')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g5', 'Grupo 5: Cocina, Risas y Sabor', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g5"></div>
             </div>
         </article>
@@ -343,7 +348,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g6" placeholder="Tu nombre...">
                 <textarea id="texto-g6" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g6', 'Grupo 6: La música a través del tiempo')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g6', 'Grupo 6: La música a través del tiempo', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g6"></div>
             </div>
         </article>
@@ -363,7 +368,7 @@
                 <h4>💬 Dejá tu comentario o saludo al grupo:</h4>
                 <input type="text" id="nombre-g7" placeholder="Tu nombre...">
                 <textarea id="texto-g7" placeholder="Escribí tu opinión acá..."></textarea>
-                <button type="button" class="btn-publicar" onclick="agregarComentario('g7', 'Grupo 7: ¿Hablamos o Escroleamos?')">Publicar comentario</button>
+                <button type="button" class="btn-publicar" onclick="agregarComentario('g7', 'Grupo 7: ¿Hablamos o Escroleamos?', this)">Publicar comentario</button>
                 <div class="lista-comentarios" id="lista-g7"></div>
             </div>
         </article>
@@ -376,7 +381,9 @@
     </footer>
 
     <script>
-        function agregarComentario(idGrupo, nombreGrupo) {
+        const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbz2TDIRt_uYPdKQDL2MjPCtE9IwPd0-eS9cuI5iCAqKdxORx3DFIenRljLftweF2Aj-/exec";
+
+        async function agregarComentario(idGrupo, nombreGrupo, boton) {
             const inputNombre = document.getElementById('nombre-' + idGrupo);
             const inputTexto = document.getElementById('texto-' + idGrupo);
             const lista = document.getElementById('lista-' + idGrupo);
@@ -389,28 +396,56 @@
                 return;
             }
 
-            // Crear y mostrar el comentario en pantalla
-            const item = document.createElement('div');
-            item.className = 'comentario-item';
+            if (boton) {
+                boton.disabled = true;
+                boton.textContent = 'Publicando...';
+            }
 
-            const autor = document.createElement('strong');
-            autor.textContent = nombre + ' comentó:';
+            const parametros = new URLSearchParams();
+            parametros.append('Grupo', nombreGrupo || idGrupo);
+            parametros.append('Nombre', nombre);
+            parametros.append('Mensaje', texto);
 
-            const mensaje = document.createElement('span');
-            mensaje.textContent = texto;
+            try {
+                await fetch(URL_APPS_SCRIPT, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    body: parametros.toString()
+                });
 
-            item.appendChild(autor);
-            item.appendChild(mensaje);
-            lista.appendChild(item);
+                // Crear y mostrar el comentario en pantalla
+                const item = document.createElement('div');
+                item.className = 'comentario-item';
 
-            // Guardar en el navegador del dispositivo para que no se borre al recargar
-            const guardados = JSON.parse(localStorage.getItem('comentarios_' + idGrupo) || '[]');
-            guardados.push({ nombre: nombre, texto: texto });
-            localStorage.setItem('comentarios_' + idGrupo, JSON.stringify(guardados));
+                const autor = document.createElement('strong');
+                autor.textContent = nombre + ' comentó:';
 
-            // Limpiar campos
-            inputNombre.value = '';
-            inputTexto.value = '';
+                const mensaje = document.createElement('span');
+                mensaje.textContent = texto;
+
+                item.appendChild(autor);
+                item.appendChild(mensaje);
+                lista.appendChild(item);
+
+                // Guardar en el navegador del dispositivo para que no se borre al recargar
+                const guardados = JSON.parse(localStorage.getItem('comentarios_' + idGrupo) || '[]');
+                guardados.push({ nombre: nombre, texto: texto });
+                localStorage.setItem('comentarios_' + idGrupo, JSON.stringify(guardados));
+
+                // Limpiar campos
+                inputNombre.value = '';
+                inputTexto.value = '';
+            } catch (err) {
+                alert('Error de conexión. Revisá internet e intentá otra vez.');
+            } finally {
+                if (boton) {
+                    boton.disabled = false;
+                    boton.textContent = 'Publicar comentario';
+                }
+            }
         }
 
         // Cargar comentarios guardados al abrir la página
